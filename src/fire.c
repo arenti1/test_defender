@@ -58,11 +58,21 @@ void draw_fire(enemy *e, areas *twr, defender *game)
 
 int shoot_range(enemy *head, areas *twr_head)
 {
-    float distance;
-    float radious = 150.0;
-    distance = sqrt(pow((head->pos.x - twr_head->shot.x), 2)
-    + pow((head->pos.y - twr_head->shot.y), 2));
+    int rad = 170;
+    int r = pow(rad, 2);
+    if ((pow(head->pos.x - twr_head->min_x, 2) + pow(head->pos.y - twr_head->min_y, 2)) < r){
+        return 1;
+    }
+    return 0;
+}
+/*
+int shoot_range(enemy *head, areas *twr_head)
+{
+    float radious = 170.0;
+    float distance = sqrt(pow((head->pos.x - twr_head->min_x), 2)
+    + pow((head->pos.y - twr_head->min_y), 2));
 
+    //printf("distance->%f\n", distance);
 
     if (distance <= radious){
         return (1);
@@ -70,7 +80,7 @@ int shoot_range(enemy *head, areas *twr_head)
         return (-1);
     }
 }
-
+*/
 /*
 void draw_fire(enemy *enm_head, areas *twr_head, defender *game)
 {
