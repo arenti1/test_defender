@@ -12,14 +12,14 @@ enemy *link_enm(void)
 {
     int i = 0;
     enemy *tmp;
-    enemy *head = malloc(sizeof(enemy));
+    enemy *head = (enemy *) malloc(sizeof(enemy));
     head->pos.x = 0;
     head->pos.y = 515;
     head->health = 100;
     int a = -70;
     tmp = head;
     while (i <= 4) {
-        tmp->next = malloc(sizeof(enemy));
+        tmp->next = (enemy *) malloc(sizeof(enemy));
         tmp = tmp->next;
         tmp->pos.x = a;
         tmp->pos.y = 525;
@@ -35,7 +35,7 @@ areas *linked(void)
 {
     int i = 0;
     areas *temp;
-    areas *head = malloc(sizeof(areas));
+    areas *head = (areas *) malloc(sizeof(areas));
     head->N = i;
     head->busy = 0;
     init_areas(head);
@@ -43,7 +43,7 @@ areas *linked(void)
     head->shot.y = head->min_y + 5;
     temp = head;
     while (i <= 5){
-        temp->next = malloc(sizeof(areas));
+        temp->next = (areas *) malloc(sizeof(areas));
         temp = temp->next;
         temp->N = i + 1;
         temp->busy = 0;

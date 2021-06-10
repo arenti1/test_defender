@@ -45,6 +45,7 @@ void draw_fire(enemy *e, areas *twr, defender *game)
         else {
             twr->shot.y += 5;
         }
+        
         sfSprite_setPosition(game->fire, twr->shot);
         sfRenderWindow_drawSprite(game->window, game->fire, NULL);
 
