@@ -54,6 +54,14 @@ void draw_fire(enemy *e, areas *twr, defender *game)
         twr->shot.y = twr->min_y;
         e->health -= 20;
     }
+    if (twr->type == 2){
+        sfSprite_setPosition(game->fire, twr->shot);
+        sfRenderWindow_drawSprite(game->window, game->fire, NULL);
+    }
+    else {
+        sfSprite_setPosition(game->earth, twr->shot);
+        sfRenderWindow_drawSprite(game->window, game->earth, NULL);
+    }
 }
 
 int shoot_range(enemy *head, areas *twr_head)

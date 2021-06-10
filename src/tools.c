@@ -58,60 +58,84 @@ void check_infloor(defender *game)
         (game->event.mouseButton.y > 626) &&
         (game->event.mouseButton.y < 674)) {
             head->busy = 1;
-            if (game->t_switch == 1)
+            if (game->t_switch == 1){
                 head->tower = game->tower_bs;
-            else if (game->t_switch == 2)
+                head->type = 1;
+            }
+            else if (game->t_switch == 2){
                 head->tower = game->tower_rs;
+                head->type = 2;
+            }
         }
     else if ((head->N == 1) && (game->event.mouseButton.x > 399) &&
         (game->event.mouseButton.x < 477) &&
         (game->event.mouseButton.y > 317) &&
         (game->event.mouseButton.y < 372)) {
             head->busy = 1;
-            if (game->t_switch == 1)
+            if (game->t_switch == 1){
                 head->tower = game->tower_bs;
-            else if (game->t_switch == 2)
+                head->type = 1;
+            }
+            else if (game->t_switch == 2){
                 head->tower = game->tower_rs;
+                head->type = 2;
+            }
         }
     else if ((head->N == 2) && (game->event.mouseButton.x > 624) &&
         (game->event.mouseButton.x < 699) &&
         (game->event.mouseButton.y > 480) &&
         (game->event.mouseButton.y < 575)) {
             head->busy = 1;
-            if (game->t_switch == 1)
+            if (game->t_switch == 1){
                 head->tower = game->tower_bs;
-            else if (game->t_switch == 2)
+                head->type = 1;
+            }
+            else if (game->t_switch == 2){
                 head->tower = game->tower_rs;
+                head->type = 2;
+            }
         }
     else if ((head->N == 3) && (game->event.mouseButton.x > 882) &&
         (game->event.mouseButton.x < 963) &&
         (game->event.mouseButton.y > 711) &&
         (game->event.mouseButton.y < 776)) {
             head->busy = 1;
-            if (game->t_switch == 1)
+            if (game->t_switch == 1) {
                 head->tower = game->tower_bs;
-            else if (game->t_switch == 2)
+                head->type = 1;
+            }
+            else if (game->t_switch == 2){
                 head->tower = game->tower_rs;
+                head->type = 2;
+            }
         }
     else if ((head->N == 4) && (game->event.mouseButton.x > 1046) &&
         (game->event.mouseButton.x < 1124) &&
         (game->event.mouseButton.y > 280) &&
         (game->event.mouseButton.y < 387)) {
             head->busy = 1;
-            if (game->t_switch == 1)
+            if (game->t_switch == 1){
                 head->tower = game->tower_bs;
-            else if (game->t_switch == 2)
+                head->type = 1;
+            }
+            else if (game->t_switch == 2){
                 head->tower = game->tower_rs;
+                head->type = 2;
+            }
         }
     else if ((head->N == 5) && (game->event.mouseButton.x > 1344) &&
         (game->event.mouseButton.x < 1422) &&
         (game->event.mouseButton.y > 518) &&
         (game->event.mouseButton.y < 580)) {
             head->busy = 1;
-            if (game->t_switch == 1)
+            if (game->t_switch == 1){
                 head->tower = game->tower_bs;
-            else if (game->t_switch == 2)
+                head->type = 1;
+            }
+            else if (game->t_switch == 2){
                 head->tower = game->tower_rs;
+                head->type = 2;
+            }
         }
     head = head->next;
     }
@@ -123,7 +147,8 @@ void animat_enm(defender *game)
     float a = sfTime_asSeconds(game->time);
 
     if (a > 0.15) {
-        game->enm_animation = game->enm_animation == 2 ? 0 : game->enm_animation + 1; 
+        game->enm_animation = game->enm_animation == 2 ? 0 \
+        : game->enm_animation + 1; 
         sfClock_restart(game->clock);
     }
 }

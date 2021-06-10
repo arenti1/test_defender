@@ -23,6 +23,7 @@ typedef struct areas
     int N;
     sfSprite *tower;
     short busy;
+    short type;
     sfVector2f shot;
     struct areas *next;
 } areas ;
