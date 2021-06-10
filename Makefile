@@ -70,7 +70,7 @@ all: $(NAME)
 $(NAME):
 	gcc -c $(SRC)
 	ar rc $(NAME) $(OBJ)
-	gcc -o $(NAME) $(OBJ)  -Wall -Werror -Wextra -lcsfml-graphics -lcsfml-system -lcsfml-audio -lcsfml-window -lm
+	gcc -o $(NAME) $(OBJ)  -g -Wall -Werror -Wextra -lcsfml-graphics -lcsfml-system -lcsfml-audio -lcsfml-window -lm
 	rm -f $(OBJ)
 clean:
 	rm -f $(OBJ)
