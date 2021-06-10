@@ -1,0 +1,6 @@
+/*
+void init_enm(defender *game)
+{
+    game->enemy = sfTexture_createFromFile("./rec/skelt.jpg", NULL);
+
+}*/
