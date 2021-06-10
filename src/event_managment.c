@@ -34,6 +34,7 @@ void manage_in_game_events(defender *game)
     while (sfRenderWindow_pollEvent(game->window, &(game->event))) {
         if (game->event.key.code == sfKeyEscape) {
             sfRenderWindow_close(game->window);
+            free_game(game);
             exit(0);
         }
     }

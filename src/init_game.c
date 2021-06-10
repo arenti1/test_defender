@@ -138,5 +138,5 @@ int init_game(defender *game)
     init_sprites(game);
     game->list = linked();
     game->enm = link_enm();
-
+    game->clock = sfClock_create();
 }

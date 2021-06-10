@@ -8,70 +8,63 @@
 #include "../include/my.h"
 #include "../include/defender.h"
 
-void move_enm(defender *game, enemy *alive, sfVector2f v)
+void free_enemy(enemy *e)
 {
-    sfSprite *pick;
-    if (game->dir == 0) {
-        if (game->enm_animation == 0) {
-            pick = game->side;
-        }
-        else if (game->enm_animation == 1) {
-            pick = game->side_r;
-        }
-        else {
-            pick = game->side_l;
-        }
-    }
-    else if (game->dir == 1) {
-        if (game->enm_animation == 0) {
-            pick = game->front;
-        }
-        else if (game->enm_animation == 1) {
-            pick = game->front_r;
-        }
-        else {
-            pick = game->front_l;
-        }
-    }
-    else {
-        if (game->enm_animation == 0) {
-            pick = game->back;
-        }
-        else if (game->enm_animation == 1) {
-            pick = game->back_r;
-        }
-        else {
-            pick = game->back_l;
-        }
-    }
-    if (alive->health > 0) {
-        animat_enm(game);
-        sfSprite_setPosition(pick, v);
-        sfRenderWindow_drawSprite(game->window, pick, NULL);
+    enemy *temp;
+    temp = e;
+    while (e != NULL){
+        temp = e->next;
+        free(e);
+        e = temp;
     }
 }
 
-void shooting(defender *game)
+void free_towers(areas *a)
 {
-    enemy *enm_head = game->enm;
-    areas *twr_head = game->list;
-    int a;
-    int i = 1;
-    while (twr_head != NULL){
-        enm_head = game->enm;
-        while (enm_head != NULL){
-            a = shoot_range(enm_head, twr_head);
-            if (a == 1 && i == 1 && twr_head->busy == 1) {
-                    draw_fire(enm_head, twr_head, game);
-                    i--;
-                }
-            enm_head = enm_head->next;
-        }
-
-        i = 1;
-        twr_head = twr_head->next;
+    areas *temp;
+    temp = a;
+    while (a != NULL){
+        temp = a->next;
+        free(a);
+        a = temp;
     }
-    printf("%d\n", a);
+}
+
+void free_game(defender *game)
+{
+    free_towers(game->list);
+    free_enemy(game->enm);
+    
+    sfSprite_destroy(game->start_game);
+    sfSprite_destroy(game->start_game_cpy);
+    sfSprite_destroy(game->back);
+    sfSprite_destroy(game->back_l);
+    sfSprite_destroy(game->back_r);
+    sfSprite_destroy(game->front);
+    sfSprite_destroy(game->front_l);
+    sfSprite_destroy(game->front_r);
+    sfSprite_destroy(game->side);
+    sfSprite_destroy(game->side_l);
+    sfSprite_destroy(game->side_r);
+    sfSprite_destroy(game->tower_bs);
+    sfSprite_destroy(game->tower_rs);
+    sfSprite_destroy(game->fire);
+    sfSprite_destroy(game->earth);
+
+    sfTexture_destroy(game->fire_t);
+    sfTexture_destroy(game->tower_bt);
+    sfTexture_destroy(game->tower_rt);
+    sfTexture_destroy(game->back_lt);
+    sfTexture_destroy(game->back_rt);
+    sfTexture_destroy(game->back_t);
+    sfTexture_destroy(game->front_lt);
+    sfTexture_destroy(game->front_rt);
+    sfTexture_destroy(game->front_t);
+    sfTexture_destroy(game->side_t);
+    sfTexture_destroy(game->side_lt);
+    sfTexture_destroy(game->side_rt);
+    sfTexture_destroy(game->fire_t);
+    sfTexture_destroy(game->earth_t);
 }
 
 int find_difference(float a, float b)       

@@ -18,8 +18,8 @@ void in_game(defender *game)
     manage_in_game_events(game);
     draw_bg(game);
     draw_flying_tower(game);
-    display_towers(game);
-    draw_enm(game);
+    draw_towers(game);
+    draw_enemy(game);
     shooting(game);
     sfRenderWindow_display(game->window);
 }

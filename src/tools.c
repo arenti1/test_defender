@@ -127,29 +127,3 @@ void animat_enm(defender *game)
         sfClock_restart(game->clock);
     }
 }
-
-int shoot_range(enemy *head, areas *twr_head)
-{
-    float distance;
-    float radious = 150.0;
-    distance = sqrt(pow((head->pos.x - twr_head->shot.x), 2)
-    + pow((head->pos.y - twr_head->shot.y), 2));
-
-
-    if (distance <= radious){
-        return (1);
-    } else {
-        return (-1);
-    }
-}
-
-/*int circle_check(enemy_s *enemy, area_s *area)
-{//CHECK IF A POINT IS IN CIRCLE RANGE
-    //(x - center_x)^2 + (y - center_y)^2 < radius^2;
-    int rad = 170;
-    int r = pow(rad, 2);
-    if ((pow(enemy->v.x - area->cx, 2) + pow(enemy->v.y - area->cy, 2)) < r){
-        return 1;
-    }
-    return 0;
-}*/

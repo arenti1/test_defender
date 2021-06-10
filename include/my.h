@@ -61,9 +61,9 @@ void manage_in_game_events(defender *game);
 //draw
 void draw_bg(defender *game);
 void draw_flying_tower(defender *game);
-void display_towers(defender *game);
-void draw_enm(defender *game);
-void move_enm(defender *game, enemy *alive, sfVector2f v);
+void draw_towers(defender *game);
+void draw_enemy(defender *game);
+void move_enemy(defender *game, enemy *alive, sfVector2f v);
 void shooting(defender *game);
 void draw_fire(enemy *enm_head, areas *twr_head, defender *game);
 //tools
@@ -73,4 +73,6 @@ void set_pos(defender *game);
 void animat_enm(defender *game);
 int shoot_range(enemy *head, areas *twr_head);
 int find_difference(float a, float b);
+
+void free_game(defender *game);
 #endif

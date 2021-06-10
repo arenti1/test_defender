@@ -26,7 +26,9 @@ SRC	=	lib/is_char_alpha.c	\
 		src/event_managment.c	\
 		src/init_game.c	\
 		src/run_game.c	\
-		src/draw.c	\
+		src/enemies.c	\
+		src/towers.c	\
+		src/fire.c	\
 		src/tools.c	\
 		src/tools2.c	\
 		src/main.c
@@ -52,7 +54,9 @@ SRC2	=	is_char_alpha.c	\
 		event_managment.c	\
 		init_game.c	\
 		run_game.c	\
-		draw.c	\
+		enemies.c	\
+		towers.c	\
+		fire.c	\
 		tools.c	\
 		tools2.c	\
 		main.c
